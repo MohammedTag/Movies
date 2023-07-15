@@ -1,0 +1,140 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="android:autofilledHighlight" tools:targetApi="o">@android:color/transparent
+        </item>
+        <item name="android:textCursorDrawable">@android:color/white</item>
+        <item name="android:ambientShadowAlpha">0.05</item>
+        <item name="android:spotShadowAlpha">0.05</item>
+    </style>
+
+    <style name="HeadlineText1">
+        <item name="android:textSize">32sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontWeight">500</item>
+        <item name="fontFamily">@font/din_medium</item>
+        <item name="android:lineSpacingExtra">40sp</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="HeadlineText2">
+        <item name="android:textSize">24sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontWeight">700</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/din_bold</item>
+        <item name="android:lineSpacingExtra">32sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="TitleText1">
+        <item name="android:textSize">16sp</item>
+        <item name="fontWeight">500</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/din_medium</item>
+        <item name="android:lineSpacingExtra">24sp</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="TitleText2">
+        <item name="android:textSize">14sp</item>
+        <item name="fontWeight">400</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/din_regular</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="BodyText1">
+        <item name="android:textSize">16sp</item>
+        <item name="fontWeight">400</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/din_regular</item>
+        <item name="android:lineSpacingExtra">24sp</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="BodyText2">
+        <item name="android:textSize">14sp</item>
+        <item name="fontWeight">400</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/din_regular</item>
+        <item name="android:lineSpacingExtra">22sp</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="SmallText1">
+        <item name="android:textSize">12sp</item>
+        <item name="fontWeight">500</item>
+        <item name="fontFamily">@font/din_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">16sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="ButtonText">
+        <item name="android:textSize">16sp</item>
+        <item name="fontWeight">700</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/din_bold</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="ButtonTextWithFontStyle" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textSize">16sp</item>
+        <item name="fontWeight">700</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/din_bold</item>
+        <item name="android:lineSpacingExtra">18sp</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="TextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">0dp</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="errorTextAppearance">@color/colorAlert</item>
+        <item name="boxStrokeErrorColor">@color/colorAlert</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="boxStrokeColor">@color/gray3</item>
+        <item name="android:strokeColor">@color/gray3</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:bottomLeftRadius">8dp</item>
+        <item name="android:bottomRightRadius">8dp</item>
+        <item name="android:topLeftRadius">8dp</item>
+        <item name="android:topRightRadius">8dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="errorTextColor">@color/colorAlert</item>
+    </style>
+
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/din_bold</item>
+        <item name="android:fontFamily">@font/din_bold</item>
+    </style>
+
+    <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
+        <item name="tabGravity">fill</item>
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/lightBlue</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+</resources>

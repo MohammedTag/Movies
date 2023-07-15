@@ -1,0 +1,5 @@
+<resources>
+    <string name="title_activity_maps">Map</string>
+    <string name="locate_business_location">حدد موقع نشاط العميل</string>
+    <string name="submit_location">رفع احداثيات الموقع</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Primary colors
+    <color name="colorPrimary">#2A3390</color>
+    <color name="colorSecondary">#7DC356</color>
+    <color name="colorPrimaryDark">#131848</color>
+    <color name="colorAccent">#F2994A</color>
+    <color name="colorAlert">#EB5757</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    //Neutral colors
+    <color name="colorBackground">#E5E5E5</color>
+    <color name="screenBackground">#F1F3F5</color>
+    <color name="gray1">#525252</color>
+    <color name="gray2">#7D7D7D</color>
+    <color name="gray3">#E9E9E9</color>
+    <color name="gray4">#EAEBF4</color>
+    <color name="gray5">#D4D4D4</color>
+    <color name="gray6">#939393</color>
+    <color name="gray7">#9C9C9C</color>
+    <color name="black1">#333333</color>
+    <color name="primaryBlue">#2A3390</color>
+    <color name="blue1">#EBECF5</color>
+    <color name="lightBlue">#B0B4D6</color>
+</resources>
