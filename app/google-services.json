@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "830117280521",
+    "firebase_url": "https://loan-officer-32760.firebaseio.com",
+    "project_id": "loan-officer-32760",
+    "storage_bucket": "loan-officer-32760.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830117280521:android:6d37cc447c2c34747731d8",
+        "android_client_info": {
+          "package_name": "com.task.airalo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830117280521-s5671o5cgk97p2uttrgq9tnk3f4kaj4g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.task.airalo",
+            "certificate_hash": "e68582e9766c945ccc952567c216f6d16843ccd7"
+          }
+        },
+        {
+          "client_id": "830117280521-umeotv8459dr0c76gktve6rg5pad95t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHP-TY_P77xThUaEVa5-sxlI27s2bZ1wQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830117280521-umeotv8459dr0c76gktve6rg5pad95t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
