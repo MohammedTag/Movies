@@ -7,8 +7,8 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.task.airalo.R
@@ -31,8 +31,7 @@ class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Acti
 
     private val adapter = LocaleSimListingAdapter(this)
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_locale_sims_listing, container, false)
@@ -45,15 +44,14 @@ class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Acti
     private fun pullData() {
         with(viewModel) {
             getAvailablePackagesListing()
-            localeSimsListing.observe(viewLifecycleOwner) { event ->
+            localeSimsListing.observe(viewLifecycleOwner, Observer { event ->
                 when (event) {
                     is LocaleSimsEvents.ErrorState -> {
                         Snackbar.make(
                             parentCl,
                             "${getString(R.string.something_went_wrong)}${event.err}",
                             Snackbar.LENGTH_SHORT
-                        )
-                            .show()
+                        ).show()
                     }
 
                     is LocaleSimsEvents.LoadingState -> {
@@ -72,7 +70,7 @@ class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Acti
                         }
                     }
                 }
-            }
+            })
         }
     }
 

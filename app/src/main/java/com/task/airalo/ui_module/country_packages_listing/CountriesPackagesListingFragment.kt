@@ -8,8 +8,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -67,7 +67,7 @@ class CountriesPackagesListingFragment : DaggerFragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getCountryPackagesListing(args.id)
         setupViews()
-        viewModel.countryPackagesListing.observe(viewLifecycleOwner) { event ->
+        viewModel.countryPackagesListing.observe(viewLifecycleOwner, Observer { event ->
             when (event) {
                 is CountryPackagesEvents.ErrorState -> {
                     Snackbar.make(
@@ -86,6 +86,6 @@ class CountriesPackagesListingFragment : DaggerFragment() {
                     bindSuccessStateViews(event.countryPackages)
                 }
             }
-        }
+        })
     }
 }
