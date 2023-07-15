@@ -2,4 +2,6 @@
     <string name="app_name">Trella task</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error">Error</string>
+    <string name="something_went_wrong">something Went Wrong</string>
 </resources>

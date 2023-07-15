@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentCl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#e6e6e6"
@@ -20,12 +21,23 @@
         android:id="@+id/backIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/baseline_arrow_forward_"
-        android:rotation="180"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:rotation="180"
+        android:src="@drawable/baseline_arrow_forward_"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/headerView" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/emptyStateView"
+        android:layout_width="224dp"
+        android:layout_height="224dp"
+        android:src="@drawable/baseline_person_search_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerView" />
 
     <TextView
         android:id="@+id/countryNameTv"
