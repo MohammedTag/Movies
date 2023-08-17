@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.task.airalo.R
 import com.task.airalo.presentation_module.local_esims.MoviesListViewModel
 import com.task.airalo.presentation_module.local_esims.models.moviesListEvents
-import com.task.airalo.ui_module.local_esims_listing.adapter.LocaleSimListingAdapter
+import com.task.airalo.ui_module.local_esims_listing.adapter.MoviesListingAdapter
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_countries_packages_listing.parentCl
 import kotlinx.android.synthetic.main.fragment_locale_sims_listing.emptyStateView
@@ -22,14 +22,14 @@ import kotlinx.android.synthetic.main.fragment_locale_sims_listing.localeSimsRv
 import kotlinx.android.synthetic.main.fragment_locale_sims_listing.progressBar
 import javax.inject.Inject
 
-class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Action {
+class LocaleSimsListingFragment : DaggerFragment(), MoviesListingAdapter.Action {
 
 
     @Inject
     lateinit var localeSimsViewModelFactory: ViewModelProvider.Factory
     private val viewModel: MoviesListViewModel by viewModels { localeSimsViewModelFactory }
 
-    private val adapter = LocaleSimListingAdapter(this)
+    private val adapter = MoviesListingAdapter(this)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {

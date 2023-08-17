@@ -8,20 +8,20 @@ import com.task.airalo.R
 import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 
 
-class CountryPackagesListingAdapter : ListAdapter<MovieDetailsDomain, CountryPackageItemViewHolder>(
-    LocaleSimListingDiffCallback()
+class MovieDetailsAdapter : ListAdapter<MovieDetailsDomain, MovieDetailsItemViewHolder>(
+    MovieDetailsDiffCallback()
 ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryPackageItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieDetailsItemViewHolder {
         val viewHolder =
             LayoutInflater.from(parent.context).inflate(R.layout.item_country_package, parent, false)
-        return CountryPackageItemViewHolder(viewHolder)
+        return MovieDetailsItemViewHolder(viewHolder)
     }
 
-    override fun onBindViewHolder(holder: CountryPackageItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieDetailsItemViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-    class LocaleSimListingDiffCallback : DiffUtil.ItemCallback<MovieDetailsDomain>() {
+    class MovieDetailsDiffCallback : DiffUtil.ItemCallback<MovieDetailsDomain>() {
         override fun areItemsTheSame(oldItem: MovieDetailsDomain, newItem: MovieDetailsDomain): Boolean {
             return oldItem == newItem
         }

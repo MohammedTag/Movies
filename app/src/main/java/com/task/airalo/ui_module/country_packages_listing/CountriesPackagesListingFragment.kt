@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.task.airalo.R
 import com.task.airalo.presentation_module.country_packages.MovieDetailsViewModel
 import com.task.airalo.presentation_module.country_packages.models.MovieDetailsEvents
-import com.task.airalo.ui_module.country_packages_listing.adapter.CountryPackagesListingAdapter
+import com.task.airalo.ui_module.country_packages_listing.adapter.MovieDetailsAdapter
 import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_countries_packages_listing.backIv
@@ -31,7 +31,7 @@ class CountriesPackagesListingFragment : DaggerFragment() {
     private val viewModel: MovieDetailsViewModel by viewModels { viewModelFactory }
 
     private val args: CountriesPackagesListingFragmentArgs by navArgs()
-    private val adapter = CountryPackagesListingAdapter()
+    private val adapter = MovieDetailsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

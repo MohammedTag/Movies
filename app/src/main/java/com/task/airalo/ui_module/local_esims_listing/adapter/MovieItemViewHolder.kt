@@ -7,9 +7,9 @@ import com.task.domain.domain_module.country_listing.models.ResultDomain
 import kotlinx.android.synthetic.main.item_layout.view.countryNameTv
 import kotlinx.android.synthetic.main.item_layout.view.flagIv
 
-class LocaleSimItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MovieItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(item: ResultDomain, action: LocaleSimListingAdapter.Action) {
+    fun bind(item: ResultDomain, action: MoviesListingAdapter.Action) {
         itemView.apply {
             with(item) {
                 setOnClickListener {

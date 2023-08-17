@@ -5,24 +5,23 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.task.airalo.R
-import com.task.domain.domain_module.country_listing.models.MoviesDomain
 import com.task.domain.domain_module.country_listing.models.ResultDomain
 
 
-class LocaleSimListingAdapter(private var actions: Action) : ListAdapter<ResultDomain, LocaleSimItemViewHolder>(
-    LocaleSimListingDiffCallback()
+class MoviesListingAdapter(private var actions: Action) : ListAdapter<ResultDomain, MovieItemViewHolder>(
+    MoviesListingDiffCallback()
 ) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocaleSimItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemViewHolder {
         val viewHolder =
             LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return LocaleSimItemViewHolder(viewHolder)
+        return MovieItemViewHolder(viewHolder)
     }
 
-    override fun onBindViewHolder(holder: LocaleSimItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieItemViewHolder, position: Int) {
         holder.bind(getItem(position),actions)
     }
-    class LocaleSimListingDiffCallback : DiffUtil.ItemCallback<ResultDomain>() {
+    class MoviesListingDiffCallback : DiffUtil.ItemCallback<ResultDomain>() {
         override fun areItemsTheSame(oldItem: ResultDomain, newItem: ResultDomain): Boolean {
             return oldItem == newItem
         }
