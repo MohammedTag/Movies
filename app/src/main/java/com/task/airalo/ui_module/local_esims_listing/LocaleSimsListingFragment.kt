@@ -12,8 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.task.airalo.R
-import com.task.airalo.presentation_module.local_esims.LocaleSimsViewModel
-import com.task.airalo.presentation_module.local_esims.models.LocaleSimsEvents
+import com.task.airalo.presentation_module.local_esims.MoviesListViewModel
+import com.task.airalo.presentation_module.local_esims.models.moviesListEvents
 import com.task.airalo.ui_module.local_esims_listing.adapter.LocaleSimListingAdapter
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_countries_packages_listing.parentCl
@@ -27,7 +27,7 @@ class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Acti
 
     @Inject
     lateinit var localeSimsViewModelFactory: ViewModelProvider.Factory
-    private val viewModel: LocaleSimsViewModel by viewModels { localeSimsViewModelFactory }
+    private val viewModel: MoviesListViewModel by viewModels { localeSimsViewModelFactory }
 
     private val adapter = LocaleSimListingAdapter(this)
     override fun onCreateView(
@@ -44,9 +44,9 @@ class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Acti
     private fun pullData() {
         with(viewModel) {
             getAvailablePackagesListing()
-            localeSimsListing.observe(viewLifecycleOwner, Observer { event ->
+            availableMovies.observe(viewLifecycleOwner, Observer { event ->
                 when (event) {
-                    is LocaleSimsEvents.ErrorState -> {
+                    is moviesListEvents.ErrorState -> {
                         Snackbar.make(
                             parentCl,
                             "${getString(R.string.something_went_wrong)}${event.err}",
@@ -54,17 +54,17 @@ class LocaleSimsListingFragment : DaggerFragment(), LocaleSimListingAdapter.Acti
                         ).show()
                     }
 
-                    is LocaleSimsEvents.LoadingState -> {
+                    is moviesListEvents.LoadingState -> {
                         progressBar.visibility = VISIBLE
                     }
 
-                    is LocaleSimsEvents.RetrievedLocaleSimsListSuccessfully -> {
+                    is moviesListEvents.RetrievedMoviesListSuccessfully -> {
                         progressBar.visibility = GONE
-                        with(event.eSimsListing.list) {
+                        with(event.moviesListing.results) {
                             if (isEmpty()) {
                                 emptyStateView.visibility = VISIBLE
                             } else {
-                                adapter.submitList(event.eSimsListing.list)
+                                adapter.submitList(event.moviesListing.results)
                                 emptyStateView.visibility = GONE
                             }
                         }

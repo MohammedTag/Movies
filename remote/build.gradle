@@ -40,7 +40,7 @@ android {
     flavorDimensions "version"
     productFlavors {
         staging {
-            buildConfigField "String", "BASE_URL", "\"https://www.airalo.com/\""
+            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
         }
     }
 }

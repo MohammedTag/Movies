@@ -12,11 +12,11 @@ import dagger.multibindings.IntoMap
  * Created by Mohammed Taguldeen on 13/07/2023.
  */
 @Module
-abstract class LocaleSimsViewModelModule {
+abstract class MoviesViewModelModule {
     @Binds
     @IntoMap
-    @ViewModelKey(LocaleSimsViewModel::class)
-    internal abstract fun bindLocaleSimsViewModel(localeSimsViewModel: LocaleSimsViewModel): ViewModel
+    @ViewModelKey(MoviesListViewModel::class)
+    internal abstract fun bindLocaleSimsViewModel(localeSimsViewModel: MoviesListViewModel): ViewModel
 
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

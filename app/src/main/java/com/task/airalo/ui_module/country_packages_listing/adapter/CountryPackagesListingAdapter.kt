@@ -5,12 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.task.airalo.R
-import com.task.domain.domain_module.country_listing.models.CountryPackages
-import com.task.domain.domain_module.country_listing.models.Package
-import com.task.domain.domain_module.packages_listing.models.LocalEsimsItem
+import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 
 
-class CountryPackagesListingAdapter : ListAdapter<Package, CountryPackageItemViewHolder>(
+class CountryPackagesListingAdapter : ListAdapter<MovieDetailsDomain, CountryPackageItemViewHolder>(
     LocaleSimListingDiffCallback()
 ) {
 
@@ -23,12 +21,12 @@ class CountryPackagesListingAdapter : ListAdapter<Package, CountryPackageItemVie
     override fun onBindViewHolder(holder: CountryPackageItemViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-    class LocaleSimListingDiffCallback : DiffUtil.ItemCallback<Package>() {
-        override fun areItemsTheSame(oldItem: Package, newItem: Package): Boolean {
+    class LocaleSimListingDiffCallback : DiffUtil.ItemCallback<MovieDetailsDomain>() {
+        override fun areItemsTheSame(oldItem: MovieDetailsDomain, newItem: MovieDetailsDomain): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: Package, newItem: Package): Boolean {
+        override fun areContentsTheSame(oldItem: MovieDetailsDomain, newItem: MovieDetailsDomain): Boolean {
             return oldItem.id == newItem.id
         }
 

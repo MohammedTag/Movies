@@ -1,8 +1,8 @@
 package com.task.domain.domain_module.country_listing.use_case
 
 import com.task.domain.domain_module.abstract_usecases.SingleUseCase
-import com.task.domain.domain_module.country_listing.models.CountryPackages
-import com.task.domain.domain_module.packages_listing.repositories.PackagesListingRepository
+import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
+import com.task.domain.domain_module.packages_listing.repositories.MoviesRepository
 import com.task.domain.domain_module.qualifires.Background
 import com.task.domain.domain_module.qualifires.Foreground
 import io.reactivex.Scheduler
@@ -12,18 +12,18 @@ import javax.inject.Inject
 /**
  * Created by Mohammed Taguldeen on 13/07/2023.
  */
-class GetCountryPackagesUseCase @Inject constructor(
-    private val availablePackages: PackagesListingRepository,
+class GetMovieDetailsUseCase @Inject constructor(
+    private val repo: MoviesRepository,
     @Background private val backgroundScheduler: Scheduler,
     @Foreground private val foregroundScheduler: Scheduler
-) : SingleUseCase<CountryPackages, String>(
+) : SingleUseCase<MovieDetailsDomain, String>(
     backgroundScheduler,
     foregroundScheduler
 ) {
 
-    override fun createSingle(input: String?): Single<CountryPackages> =
+    override fun createSingle(input: String?): Single<MovieDetailsDomain> =
         if (input != null) {
-            availablePackages.getAvailableCountryPackages(input)
+            repo.getMovieDetails(input)
         } else {
             Single.error(IllegalArgumentException())
         }

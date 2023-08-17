@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.task.airalo.R
-import com.task.domain.domain_module.packages_listing.models.LocalEsimsItem
+import com.task.domain.domain_module.country_listing.models.MoviesDomain
+import com.task.domain.domain_module.country_listing.models.ResultDomain
 
 
-class LocaleSimListingAdapter(private var actions: Action) : ListAdapter<LocalEsimsItem, LocaleSimItemViewHolder>(
+class LocaleSimListingAdapter(private var actions: Action) : ListAdapter<ResultDomain, LocaleSimItemViewHolder>(
     LocaleSimListingDiffCallback()
 ) {
 
@@ -21,12 +22,12 @@ class LocaleSimListingAdapter(private var actions: Action) : ListAdapter<LocalEs
     override fun onBindViewHolder(holder: LocaleSimItemViewHolder, position: Int) {
         holder.bind(getItem(position),actions)
     }
-    class LocaleSimListingDiffCallback : DiffUtil.ItemCallback<LocalEsimsItem>() {
-        override fun areItemsTheSame(oldItem: LocalEsimsItem, newItem: LocalEsimsItem): Boolean {
+    class LocaleSimListingDiffCallback : DiffUtil.ItemCallback<ResultDomain>() {
+        override fun areItemsTheSame(oldItem: ResultDomain, newItem: ResultDomain): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: LocalEsimsItem, newItem: LocalEsimsItem): Boolean {
+        override fun areContentsTheSame(oldItem: ResultDomain, newItem: ResultDomain): Boolean {
             return oldItem.id == newItem.id
         }
 
