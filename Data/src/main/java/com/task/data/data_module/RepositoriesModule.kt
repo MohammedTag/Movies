@@ -20,11 +20,11 @@ class RepositoriesModule {
 
     @Provides
     @Singleton
-    fun providesPackagesListingRepository(
-        airaloPackagesService: TheMoviesService
+    fun providesMoviesRepository(
+        service: TheMoviesService
     ): MoviesRepository =
         MoviesDataSource(
-            airaloPackagesService
+            service
         )
 
 

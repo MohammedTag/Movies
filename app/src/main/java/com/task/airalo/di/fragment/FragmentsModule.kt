@@ -1,8 +1,8 @@
 package com.task.airalo.di.fragment
 
 import com.task.airalo.di.scope.FragmentScope
-import com.task.airalo.ui_module.country_packages_listing.CountriesPackagesListingFragment
-import com.task.airalo.ui_module.local_esims_listing.LocaleSimsListingFragment
+import com.task.airalo.ui_module.country_packages_listing.MovieDetailsFragment
+import com.task.airalo.ui_module.local_esims_listing.MoviesListingFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -10,9 +10,9 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentsModule{
     @FragmentScope
     @ContributesAndroidInjector
-    abstract  fun contributeLocaleSimsListingFragment(): LocaleSimsListingFragment
+    abstract  fun contributeMoviesListingFragment(): MoviesListingFragment
 
     @FragmentScope
     @ContributesAndroidInjector
-    abstract  fun contributeCountriesPackagesListingFragment(): CountriesPackagesListingFragment
+    abstract  fun contributeMovieDetailsFragment(): MovieDetailsFragment
 }

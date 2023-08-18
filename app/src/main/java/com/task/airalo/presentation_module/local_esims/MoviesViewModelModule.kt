@@ -16,7 +16,7 @@ abstract class MoviesViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MoviesListViewModel::class)
-    internal abstract fun bindLocaleSimsViewModel(localeSimsViewModel: MoviesListViewModel): ViewModel
+    internal abstract fun bindMoviesListViewModel(localeSimsViewModel: MoviesListViewModel): ViewModel
 
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

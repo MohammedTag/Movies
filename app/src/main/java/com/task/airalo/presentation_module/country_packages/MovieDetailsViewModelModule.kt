@@ -12,5 +12,5 @@ abstract class MovieDetailsViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(MovieDetailsViewModel::class)
-    internal abstract fun bindCountryPackagesViewModel(movieDetailsViewModel: MovieDetailsViewModel): ViewModel
+    internal abstract fun bindMovieDetailsViewModel(movieDetailsViewModel: MovieDetailsViewModel): ViewModel
 }

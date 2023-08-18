@@ -16,13 +16,13 @@ import com.task.airalo.presentation_module.local_esims.MoviesListViewModel
 import com.task.airalo.presentation_module.local_esims.models.moviesListEvents
 import com.task.airalo.ui_module.local_esims_listing.adapter.MoviesListingAdapter
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.parentCl
-import kotlinx.android.synthetic.main.fragment_locale_sims_listing.emptyStateView
-import kotlinx.android.synthetic.main.fragment_locale_sims_listing.localeSimsRv
-import kotlinx.android.synthetic.main.fragment_locale_sims_listing.progressBar
+import kotlinx.android.synthetic.main.fragment_movie_details.parentCl
+import kotlinx.android.synthetic.main.fragment_movies_listing.emptyStateView
+import kotlinx.android.synthetic.main.fragment_movies_listing.localeSimsRv
+import kotlinx.android.synthetic.main.fragment_movies_listing.progressBar
 import javax.inject.Inject
 
-class LocaleSimsListingFragment : DaggerFragment(), MoviesListingAdapter.Action {
+class MoviesListingFragment : DaggerFragment(), MoviesListingAdapter.Action {
 
 
     @Inject
@@ -34,7 +34,7 @@ class LocaleSimsListingFragment : DaggerFragment(), MoviesListingAdapter.Action 
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_locale_sims_listing, container, false)
+        return inflater.inflate(R.layout.fragment_movies_listing, container, false)
     }
 
     private fun bindViews() {
@@ -82,7 +82,7 @@ class LocaleSimsListingFragment : DaggerFragment(), MoviesListingAdapter.Action 
 
     override fun onItemClicked(id: Int) {
         findNavController().navigate(
-            LocaleSimsListingFragmentDirections.actionLocaleSimsListingFragmentToCountriesPackagesListingFragment(
+            MoviesListingFragmentDirections.actionLocaleSimsListingFragmentToCountriesPackagesListingFragment(
                 id
             )
         )

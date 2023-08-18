@@ -6,18 +6,18 @@
     app:startDestination="@id/localeSimsListingFragment">
     <fragment
         android:id="@+id/localeSimsListingFragment"
-        android:name="com.task.airalo.ui_module.local_esims_listing.LocaleSimsListingFragment"
-        android:label="fragment_locale_sims_listing"
-        tools:layout="@layout/fragment_locale_sims_listing" >
+        android:name="com.task.airalo.ui_module.local_esims_listing.MoviesListingFragment"
+        android:label="fragment_movies_listing"
+        tools:layout="@layout/fragment_movies_listing" >
         <action
             android:id="@+id/action_localeSimsListingFragment_to_countriesPackagesListingFragment"
             app:destination="@id/countriesPackagesListingFragment" />
     </fragment>
     <fragment
         android:id="@+id/countriesPackagesListingFragment"
-        android:name="com.task.airalo.ui_module.country_packages_listing.CountriesPackagesListingFragment"
-        android:label="fragment_countries_packages_listing"
-        tools:layout="@layout/fragment_countries_packages_listing" >
+        android:name="com.task.airalo.ui_module.country_packages_listing.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
         <argument
             android:name="id"
             app:argType="integer" />

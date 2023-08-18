@@ -21,29 +21,29 @@ import com.task.airalo.presentation_module.country_packages.MovieDetailsViewMode
 import com.task.airalo.presentation_module.country_packages.models.MovieDetailsEvents
 import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.backIv
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.descriptionTv
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.genresGroup
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.movieNameTv
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.moviePosterIv
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.parentCl
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.productionYearTv
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.progressBar
+import kotlinx.android.synthetic.main.fragment_movie_details.backIv
+import kotlinx.android.synthetic.main.fragment_movie_details.descriptionTv
+import kotlinx.android.synthetic.main.fragment_movie_details.genresGroup
+import kotlinx.android.synthetic.main.fragment_movie_details.movieNameTv
+import kotlinx.android.synthetic.main.fragment_movie_details.moviePosterIv
+import kotlinx.android.synthetic.main.fragment_movie_details.parentCl
+import kotlinx.android.synthetic.main.fragment_movie_details.productionYearTv
+import kotlinx.android.synthetic.main.fragment_movie_details.progressBar
 import javax.inject.Inject
 
-class CountriesPackagesListingFragment : DaggerFragment() {
+class MovieDetailsFragment : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private val viewModel: MovieDetailsViewModel by viewModels { viewModelFactory }
 
-    private val args: CountriesPackagesListingFragmentArgs by navArgs()
+    private val args: MovieDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_countries_packages_listing, container, false)
+        return inflater.inflate(R.layout.fragment_movie_details, container, false)
     }
     private fun bindSuccessStateViews( movieDetailsDomain: MovieDetailsDomain) {
         progressBar.visibility = GONE
