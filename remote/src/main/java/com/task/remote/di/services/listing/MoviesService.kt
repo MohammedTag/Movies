@@ -19,6 +19,6 @@ interface TheMoviesService {
 
     @GET
     @Headers("Authorization: ${EndPoints.authorization}")
-    fun getMovieDetails(@Url url:String ,@Path("id") id: String): Single<MovieDetailsResponse>
+    fun getMovieDetails(@Url url:String): Single<MovieDetailsResponse>
 
 }

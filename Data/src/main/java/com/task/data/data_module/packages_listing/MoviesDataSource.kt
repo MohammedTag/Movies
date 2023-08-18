@@ -17,7 +17,7 @@ class MoviesDataSource(
     }
 
     override fun getMovieDetails(id: String): Single<MovieDetailsDomain> {
-        return service.getMovieDetails(EndPoints.CountryPackagesEndpoint, id).map { response ->
+        return service.getMovieDetails("https://api.themoviedb.org/3/movie/${id}").map { response ->
             response.toDomain()
         }
     }

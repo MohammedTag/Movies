@@ -5,7 +5,7 @@ import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 data class MovieDetailsResponse(
     val adult: Boolean,
     val backdrop_path: String,
-    val belongs_to_collection: BelongsToCollection,
+    val belongs_to_collection: BelongsToCollection?,
     val budget: Int,
     val genres: List<Genre>,
     val homepage: String,
@@ -32,7 +32,7 @@ data class MovieDetailsResponse(
     fun toDomain() = MovieDetailsDomain(
         adult,
         backdrop_path,
-        belongs_to_collection.toDomain(),
+        belongs_to_collection?.toDomain(),
         budget,
         genres.map { it.toDomain() },
         homepage,

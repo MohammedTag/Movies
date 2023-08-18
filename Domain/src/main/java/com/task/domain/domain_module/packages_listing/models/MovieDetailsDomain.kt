@@ -3,7 +3,7 @@ package com.task.domain.domain_module.packages_listing.models
 data class MovieDetailsDomain(
     val adult: Boolean,
     val backdrop_path: String,
-    val belongs_to_collection: BelongsToCollectionDomain,
+    val belongs_to_collection: BelongsToCollectionDomain?,
     val budget: Int,
     val genres: List<GenreDomain>,
     val homepage: String,

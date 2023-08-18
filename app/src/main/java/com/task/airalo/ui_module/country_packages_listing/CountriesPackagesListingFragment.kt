@@ -1,26 +1,33 @@
 package com.task.airalo.ui_module.country_packages_listing
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import coil.load
+import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
 import com.task.airalo.R
 import com.task.airalo.presentation_module.country_packages.MovieDetailsViewModel
 import com.task.airalo.presentation_module.country_packages.models.MovieDetailsEvents
-import com.task.airalo.ui_module.country_packages_listing.adapter.MovieDetailsAdapter
 import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_countries_packages_listing.backIv
-import kotlinx.android.synthetic.main.fragment_countries_packages_listing.countryPackagesRv
+import kotlinx.android.synthetic.main.fragment_countries_packages_listing.descriptionTv
+import kotlinx.android.synthetic.main.fragment_countries_packages_listing.genresGroup
+import kotlinx.android.synthetic.main.fragment_countries_packages_listing.movieNameTv
+import kotlinx.android.synthetic.main.fragment_countries_packages_listing.moviePosterIv
 import kotlinx.android.synthetic.main.fragment_countries_packages_listing.parentCl
+import kotlinx.android.synthetic.main.fragment_countries_packages_listing.productionYearTv
 import kotlinx.android.synthetic.main.fragment_countries_packages_listing.progressBar
 import javax.inject.Inject
 
@@ -31,7 +38,6 @@ class CountriesPackagesListingFragment : DaggerFragment() {
     private val viewModel: MovieDetailsViewModel by viewModels { viewModelFactory }
 
     private val args: CountriesPackagesListingFragmentArgs by navArgs()
-    private val adapter = MovieDetailsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,24 +45,31 @@ class CountriesPackagesListingFragment : DaggerFragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_countries_packages_listing, container, false)
     }
+    private fun bindSuccessStateViews( movieDetailsDomain: MovieDetailsDomain) {
+        progressBar.visibility = GONE
+        with(movieDetailsDomain) {
+            movieNameTv.text = title
+            productionYearTv.text = release_date
 
-    private fun setupViews() {
-        countryPackagesRv.adapter = adapter
-        backIv.setOnClickListener {
-            findNavController().popBackStack()
+            genres.forEach{ genre ->
+                genresGroup.addView(createTagChip(requireContext(), genre.name))
+            }
+            descriptionTv.text =overview
+            moviePosterIv.load("https://image.tmdb.org/t/p/w500/${poster_path}")
         }
     }
+    private fun createTagChip(context: Context, chipName: String): Chip {
+        return Chip(context).apply {
+            text = chipName
+            setChipBackgroundColorResource(R.color.colorPrimary)
+            setTextColor(ContextCompat.getColor(context, R.color.white))
+//            setTextAppearance(R.style.ChipTextAppearance)
+        }
 
-    private fun bindSuccessStateViews(countryPackages: MovieDetailsDomain) {
-        progressBar.visibility = GONE
-        with(countryPackages) {
-//            countryNameTv.text = title
-//            if (packages.isEmpty()) {
-//                emptyStateView.visibility = VISIBLE
-//            } else {
-//                if (emptyStateView.isVisible) emptyStateView.visibility = GONE
-//                adapter.submitList(packages)
-//            }
+    }
+    private fun setupViews() {
+        backIv.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

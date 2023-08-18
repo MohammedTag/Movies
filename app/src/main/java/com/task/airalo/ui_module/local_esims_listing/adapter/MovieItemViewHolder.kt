@@ -15,7 +15,7 @@ class MovieItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 setOnClickListener {
                     action.onItemClicked(id)
                 }
-                flagIv.load(poster_path)
+                flagIv.load("https://image.tmdb.org/t/p/w500/${poster_path}")
                 countryNameTv.text = title
             }
         }
