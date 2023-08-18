@@ -6,7 +6,7 @@
     app:startDestination="@id/localeSimsListingFragment">
     <fragment
         android:id="@+id/localeSimsListingFragment"
-        android:name="com.task.airalo.ui_module.local_esims_listing.MoviesListingFragment"
+        android:name="com.task.task.ui_module.local_esims_listing.MoviesListingFragment"
         android:label="fragment_movies_listing"
         tools:layout="@layout/fragment_movies_listing" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/countriesPackagesListingFragment"
-        android:name="com.task.airalo.ui_module.country_packages_listing.MovieDetailsFragment"
+        android:name="com.task.task.ui_module.country_packages_listing.MovieDetailsFragment"
         android:label="fragment_movie_details"
         tools:layout="@layout/fragment_movie_details" >
         <argument

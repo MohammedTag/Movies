@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:830117280521:android:6d37cc447c2c34747731d8",
         "android_client_info": {
-          "package_name": "com.task.airalo"
+          "package_name": "com.task.task"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "830117280521-s5671o5cgk97p2uttrgq9tnk3f4kaj4g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.task.airalo",
+            "package_name": "com.task.task",
             "certificate_hash": "e68582e9766c945ccc952567c216f6d16843ccd7"
           }
         },

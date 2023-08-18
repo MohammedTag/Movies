@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.task.airalo">
+    package="com.task.task">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
 
     <application
-        android:name="com.task.airalo.ui_module.di.App"
+        android:name="com.task.task.ui_module.di.App"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.task.airalo.ui_module.AppContentActivity"
+            android:name="com.task.task.ui_module.AppContentActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">

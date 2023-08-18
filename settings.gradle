@@ -4,4 +4,4 @@ include ':context'
 include ':remote'
 include ':LocalDataStore'
 include ':app'
-rootProject.name = "airalo app"
+rootProject.name = "task app"

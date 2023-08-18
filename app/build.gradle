@@ -15,7 +15,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.task.airalo"
+        applicationId "com.task.task"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 20
