@@ -4,10 +4,9 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.task.domain.domain_module.country_listing.models.ResultDomain
-import kotlinx.android.synthetic.main.item_layout.view.countryNameTv
-import kotlinx.android.synthetic.main.item_layout.view.flagIv
+import com.task.task.databinding.ItemLayoutBinding
 
-class MovieItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class MovieItemViewHolder(private val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: ResultDomain, action: MoviesListingAdapter.Action) {
         itemView.apply {
@@ -15,8 +14,8 @@ class MovieItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 setOnClickListener {
                     action.onItemClicked(id)
                 }
-                flagIv.load("https://image.tmdb.org/t/p/w500/${poster_path}")
-                countryNameTv.text = title
+                binding.flagIv.load("https://image.tmdb.org/t/p/w500/${poster_path}")
+                binding.countryNameTv.text = title
             }
         }
     }

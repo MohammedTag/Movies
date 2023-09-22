@@ -16,19 +16,12 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.google.android.material.chip.Chip
 import com.google.android.material.snackbar.Snackbar
+import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 import com.task.task.R
+import com.task.task.databinding.FragmentMovieDetailsBinding
 import com.task.task.presentation_module.country_packages.MovieDetailsViewModel
 import com.task.task.presentation_module.country_packages.models.MovieDetailsEvents
-import com.task.domain.domain_module.packages_listing.models.MovieDetailsDomain
 import dagger.android.support.DaggerFragment
-import kotlinx.android.synthetic.main.fragment_movie_details.backIv
-import kotlinx.android.synthetic.main.fragment_movie_details.descriptionTv
-import kotlinx.android.synthetic.main.fragment_movie_details.genresGroup
-import kotlinx.android.synthetic.main.fragment_movie_details.movieNameTv
-import kotlinx.android.synthetic.main.fragment_movie_details.moviePosterIv
-import kotlinx.android.synthetic.main.fragment_movie_details.parentCl
-import kotlinx.android.synthetic.main.fragment_movie_details.productionYearTv
-import kotlinx.android.synthetic.main.fragment_movie_details.progressBar
 import javax.inject.Inject
 
 class MovieDetailsFragment : DaggerFragment() {
@@ -39,23 +32,25 @@ class MovieDetailsFragment : DaggerFragment() {
 
     private val args: MovieDetailsFragmentArgs by navArgs()
 
+    lateinit var binding: FragmentMovieDetailsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie_details, container, false)
+        binding= FragmentMovieDetailsBinding.inflate(layoutInflater)
+        return binding.root
     }
     private fun bindSuccessStateViews( movieDetailsDomain: MovieDetailsDomain) {
-        progressBar.visibility = GONE
+        binding.progressBar.visibility = GONE
         with(movieDetailsDomain) {
-            movieNameTv.text = title
-            productionYearTv.text = release_date
+            binding.movieNameTv.text = title
+            binding.productionYearTv.text = release_date
 
             genres.forEach{ genre ->
-                genresGroup.addView(createTagChip(requireContext(), genre.name))
+                binding.genresGroup.addView(createTagChip(requireContext(), genre.name))
             }
-            descriptionTv.text =overview
-            moviePosterIv.load("https://image.tmdb.org/t/p/w500/${poster_path}")
+            binding.descriptionTv.text =overview
+            binding.moviePosterIv.load("https://image.tmdb.org/t/p/w500/${poster_path}")
         }
     }
     private fun createTagChip(context: Context, chipName: String): Chip {
@@ -68,7 +63,7 @@ class MovieDetailsFragment : DaggerFragment() {
 
     }
     private fun setupViews() {
-        backIv.setOnClickListener {
+        binding.backIv.setOnClickListener {
             findNavController().popBackStack()
         }
     }
@@ -81,7 +76,7 @@ class MovieDetailsFragment : DaggerFragment() {
             when (event) {
                 is MovieDetailsEvents.ErrorState -> {
                     Snackbar.make(
-                        parentCl,
+                        binding.parentCl,
                         "${getString(R.string.something_went_wrong)}${event.err}",
                         Snackbar.LENGTH_SHORT
                     )
@@ -89,7 +84,7 @@ class MovieDetailsFragment : DaggerFragment() {
                 }
 
                 is MovieDetailsEvents.LoadingState -> {
-                    progressBar.visibility = VISIBLE
+                    binding.progressBar.visibility = VISIBLE
                 }
 
                 is MovieDetailsEvents.RetrievedretrievedMovieDetailsSuccessfully -> {

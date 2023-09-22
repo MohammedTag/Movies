@@ -22,13 +22,13 @@ class MoviesListViewModel @Inject constructor(
 
     fun getAvailablePackagesListing() {
         executeSingle(useCase =  getAvailableMoviesUseCaseUseCase.run(null),
-            successConsumer = Consumer{data->
+            successConsumer = { data->
                 _AvailableMovies.value = Companion.retrievedMoviesListSuccessfully(data)
             },
-            loadingConsumer = Consumer{
+            loadingConsumer = {
                 _AvailableMovies.value = Companion.loading()
             },
-            throwableConsumer = Consumer{error->
+            throwableConsumer = { error->
                 _AvailableMovies.value = Companion.error(error)
             }
         )
